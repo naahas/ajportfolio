@@ -34,7 +34,7 @@ var app = new Vue({
 
 
         goProject: function(stat) {
-           window.open("https://github.com/naahas/guess_who_anime")
+           window.open("https://guesswhoanime-fd0ebc6338b0.herokuapp.com/")
         }
         
 
