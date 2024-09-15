@@ -190,3 +190,17 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
     }
 });
+
+
+
+function displayMenu() {
+    var menu = document.getElementsByClassName('tmpmenu')[0];
+    
+    if (menu.style.display === "block") {
+   
+        menu.style.display = "none";
+    } else {
+     
+        menu.style.display = "block";
+    }
+}
