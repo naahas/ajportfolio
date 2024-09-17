@@ -38,7 +38,6 @@ body::-webkit-scrollbar-thumb {
     background-color: rgba(55, 69, 69, 0.489);
     width: 100vw;
     height: 100vh;
-    background-size:cover;
   }
   
   
@@ -334,7 +333,7 @@ section.active {
     justify-content: center;
     align-items: center;
     left: 3%;
-    z-index: 101;
+    z-index: 50;
 }
 
 
@@ -359,8 +358,6 @@ section.active {
     transition: all 0.1s ease-in-out;
     animation: popsocialA 0.7s forwards;
     padding: 0.1em;
-    z-index: 101;
-
 }
 
 
@@ -368,14 +365,14 @@ section.active {
     background-color: black;
     transform: scale(1.2);
     box-shadow:
-    inset 0 0 50px #2a2525,      /* inner white */
-    inset 20px 0 80px rgb(35, 36, 33),   /* inner left magenta short */
-    inset -20px 0 80px rgb(47, 54, 54),  /* inner right cyan short */
-    inset 20px 0 300px rgb(32, 34, 33),  /* inner left magenta broad */
-    inset -20px 0 300px rgb(6, 6, 6), /* inner right cyan broad */
-    0 0 50px #f9f511d3,            /* outer white */
-    -10px 0 80px rgb(7, 7, 7),        /* outer left magenta */
-    10px 0 80px rgb(77, 81, 81);         /* outer right cyan */
+    inset 0 0 50px #2a2525,     
+    inset 20px 0 80px rgb(35, 36, 33), 
+    inset -20px 0 80px rgb(47, 54, 54), 
+    inset 20px 0 300px rgb(32, 34, 33), 
+    inset -20px 0 300px rgb(6, 6, 6), 
+    0 0 50px #f9f511d3,            
+    -10px 0 80px rgb(7, 7, 7),       
+    10px 0 80px rgb(77, 81, 81);        
 }
 
 
@@ -1271,6 +1268,34 @@ section.active {
     width: 100%;
     height: 100%;
     background-image: url('img/back2.jpg');
+    background-size:cover;
+    background-position: center;
+    z-index: -100;
+    filter: brightness(50%);
+}
+
+
+.backpicskill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/back7.jpg');
+    background-size:cover;
+    background-position: center;
+    z-index: -100;
+    filter: brightness(50%);
+}
+
+
+.backpiccontact {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/back10.jpg');
     background-size:cover;
     background-position: center;
     z-index: -100;
