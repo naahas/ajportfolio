@@ -1193,21 +1193,30 @@ section.active {
 
 
 
-.projectarea{
-    overflow-y: auto;
-    position: absolute;
+.projectarea {
+    text-align: center;
+    overflow-y: auto; /* Ajout du scroll vertical */
     margin: auto;
-    right: 0;
-    left: 0;
+    position: absolute;
     top: 10%;
     bottom: 0;
-    width: 80%;
-    height: 70%;
-    display: flex;
-    flex-wrap:wrap;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    gap: 10%;
+    right: 0;
+    left: 10%;
+    width: 80%; /* Centré horizontalement avec une largeur de 80% */
+    height: 70%; /* Limite la hauteur de l'espace de travail */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 18em); /* Chaque cellule a une largeur fixe de 250px */
+    gap: 4em; /* Espace entre les items */
+    padding: 2em; /* Ajoute de l'espace intérieur autour du contenu */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+                rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+                rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+                rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+                rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+
+
 
 .projectarea::-webkit-scrollbar {
     width: 0.5em;
@@ -1233,19 +1242,22 @@ section.active {
     scrollbar-color: rgba(0, 0, 0, 0.5) rgba(255, 255, 255, 0.1); 
 }
 
+
+
 .projectcell {
     opacity: 0.9;
-    width: 20em;
-    height: 10em;
-    border-radius: 0.2em;
+    width: 100%;
+    height: 8.5em; 
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;    
-    transition: all 0.3s ease-in-out;
-    border: 0.1 solid black;
-    border-radius: 0.2em;
+    transition: all 0.2s ease-in-out;
 }
-
 
 
 .projectcell:hover {
@@ -1294,7 +1306,7 @@ section.active {
     background-size:cover;
     background-position: center;
     z-index: -100;
-    filter: brightness(50%);
+    filter: brightness(30%);
 }
 
 
