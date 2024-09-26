@@ -36,6 +36,7 @@ var app = new Vue({
         goProject: function(stat) {
            if(stat == 1) window.open("https://guesswhoanime-fd0ebc6338b0.herokuapp.com/");
            else if(stat == 2) window.open("https://otakutest-86023a11b318.herokuapp.com/");
+           
         }
         
 
