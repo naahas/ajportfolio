@@ -678,6 +678,11 @@ section.active {
 }
 
 
+#javapluspic:hover {
+    filter: brightness(50%);
+}
+
+
 
 
 #frameworkarea {
@@ -700,6 +705,12 @@ section.active {
 
 
 #fjsarea {
+    display: none;
+    opacity: 0;
+}
+
+
+#fjavarea {
     display: none;
     opacity: 0;
 }
@@ -1183,6 +1194,7 @@ section.active {
 
 
 .projectarea{
+    overflow-y: auto;
     position: absolute;
     margin: auto;
     right: 0;
@@ -1194,11 +1206,35 @@ section.active {
     display: flex;
     flex-wrap:wrap;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    gap: 10%;
 }
 
+.projectarea::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.projectarea::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 6px; 
+    border: 0.1em solid rgba(255, 255, 255, 0.3); 
+}
+
+.projectarea::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 0.3em; 
+}
+
+.projectarea::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker on hover */
+}
+
+.projectarea {
+    scrollbar-width: thin; 
+    scrollbar-color: rgba(0, 0, 0, 0.5) rgba(255, 255, 255, 0.1); 
+}
 
 .projectcell {
-    opacity: 0.8;
+    opacity: 0.9;
     width: 20em;
     height: 10em;
     border-radius: 0.2em;
@@ -1207,6 +1243,7 @@ section.active {
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;    
     transition: all 0.3s ease-in-out;
     border: 0.1 solid black;
+    border-radius: 0.2em;
 }
 
 

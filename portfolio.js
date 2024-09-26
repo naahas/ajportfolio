@@ -34,7 +34,9 @@ var app = new Vue({
 
 
         goProject: function(stat) {
-           window.open("https://guesswhoanime-fd0ebc6338b0.herokuapp.com/")
+           if(stat == 1) window.open("https://guesswhoanime-fd0ebc6338b0.herokuapp.com/");
+           else if(stat == 2) window.open("https://otakutest-86023a11b318.herokuapp.com/");
+                else window.open("https://guesswhoanime-fd0ebc6338b0.herokuapp.com/");
         }
         
 
@@ -147,13 +149,25 @@ document.getElementById('skill2').addEventListener('mouseenter', function() {
 
 
   $('#jspluspic').on('click' , () => {
-  
+    $('#fjavarea').hide();
 
     if ($("#fjsarea").css('display') == "none") {
         $("#fjsarea").addClass("fareaanimation");
         $("#fjsarea").show();
     } else $('#fjsarea').css('display' , 'none');
   });   
+
+
+
+  $('#javapluspic').on('click' , () => {
+    $('#fjsarea').hide();
+
+    if ($("#fjavarea").css('display') == "none") {
+        $("#fjavarea").addClass("fareaanimation");
+        $("#fjavarea").show();
+    } else $('#fjavarea').css('display' , 'none');
+  });   
+
 
 
 
