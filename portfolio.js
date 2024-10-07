@@ -239,32 +239,35 @@ pre3.classList.add('previewclass3');
 pre3.classList.add('previewclass');
 
 function showPreview(stat) {
-    if(stat == 1) {
-        pre1.src = "img/bombanime2.png";
-        pre2.src = "img/bombanime1.png";
-        pre3.src = "img/bombanime3.png";
+    if(isTouchDevice() != true) {
+        if(stat == 1) {
+            pre1.src = "img/bombanime2.png";
+            pre2.src = "img/bombanime1.png";
+            pre3.src = "img/bombanime3.png";
+        }
+        
+
+        if(stat == 2) {
+            pre1.src = "img/beyond2.png";
+            pre2.src = "img/beyond1.png";
+            pre3.src = "img/beyond3.png";
+        }
+
+
+        if(stat == 3) {
+            pre1.src = "img/otaku1.png";
+            pre2.src = "img/otaku2.png";
+            pre3.src = "img/otaku3.png";
+        }
+
+
+
+        var prosection = document.getElementById('projectsection');
+        prosection.append(pre1 , pre2 , pre3);
+
+        $('.previewclass').show();
+
     }
-    
-
-    if(stat == 2) {
-        pre1.src = "img/beyond2.png";
-        pre2.src = "img/beyond1.png";
-        pre3.src = "img/beyond3.png";
-    }
-
-
-    if(stat == 3) {
-        pre1.src = "img/otaku1.png";
-        pre2.src = "img/otaku2.png";
-        pre3.src = "img/otaku3.png";
-    }
-
-
-
-    var prosection = document.getElementById('projectsection');
-    prosection.append(pre1 , pre2 , pre3);
-
-    $('.previewclass').show();
 
 }
 
@@ -276,7 +279,6 @@ function disablePreview() {
 
 
 
-alert(isTouchDevice())
 function isTouchDevice() {
     return ('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
   }
