@@ -33,11 +33,15 @@ var app = new Vue({
         },
 
 
+        
         goProject: function(stat) {
            if(stat == 1) window.open("https://guesswhoanime-fd0ebc6338b0.herokuapp.com/");
            else if(stat == 2) window.open("https://otakutest-86023a11b318.herokuapp.com/");
-           
-        }
+                else if(stat == 3) window.open("https://beyond-101a9836fbfb.herokuapp.com/");
+        },
+
+
+        
         
 
     },
@@ -218,3 +222,61 @@ function displayMenu() {
         menu.style.display = "block";
     }
 }
+
+
+
+
+var pre1 = document.createElement('img');
+pre1.classList.add('previewclass1');
+pre1.classList.add('previewclass');
+
+var pre2 = document.createElement('img');
+pre2.classList.add('previewclass2');
+pre2.classList.add('previewclass');
+
+var pre3 = document.createElement('img');
+pre3.classList.add('previewclass3');
+pre3.classList.add('previewclass');
+
+function showPreview(stat) {
+    if(stat == 1) {
+        pre1.src = "img/bombanime2.png";
+        pre2.src = "img/bombanime1.png";
+        pre3.src = "img/bombanime3.png";
+    }
+    
+
+    if(stat == 2) {
+        pre1.src = "img/beyond2.png";
+        pre2.src = "img/beyond1.png";
+        pre3.src = "img/beyond3.png";
+    }
+
+
+    if(stat == 3) {
+        pre1.src = "img/otaku1.png";
+        pre2.src = "img/otaku2.png";
+        pre3.src = "img/otaku3.png";
+    }
+
+
+
+    var prosection = document.getElementById('projectsection');
+    prosection.append(pre1 , pre2 , pre3);
+
+    $('.previewclass').show();
+
+}
+
+
+
+function disablePreview() {
+    $('.previewclass').hide();
+}
+
+
+
+alert(isTouchDevice())
+function isTouchDevice() {
+    return ('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
+  }

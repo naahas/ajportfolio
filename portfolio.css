@@ -1411,4 +1411,92 @@ section.active {
 
 
 
+.preview-img {
+    height: auto;
+    transform-origin: center;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+}
+
+
+
+
+.previewclass {
+    position: absolute;
+    margin: auto;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    display: none;
+    opacity: 0;
+    border: 0.3em double aliceblue;
+    pointer-events: none;
+}
+
+
+
+
+
+
+.previewclass1 {
+    width: 20em;
+    height: 10em;
+    animation: pre1A 0.7s forwards;
+}
+
+
+
+@keyframes pre1A {
+    0% {
+
+    }
+
+
+    100% {
+        opacity: 0.9;
+        transform: scale(1.5) translate(-90% , -5%) rotate(-10deg)
+    }
+}
+
+
+
+.previewclass2 {
+    width: 20em;
+    height: 10em;
+    animation: pre2A 0.7s forwards;
+    z-index: 5;
+}
+
+@keyframes pre2A {
+    0% {
+
+    }
+
+
+    100% {
+        opacity: 0.9;
+        transform: scale(1.6) translate(0 , -5%) rotate(1deg)
+    }
+}
+
+
+.previewclass3 {
+    width: 20em;
+    height: 10em;
+    animation: pre3A 0.7s forwards;
+}
+
+
+@keyframes pre3A {
+    0% {
+
+    }
+
+
+    100% {
+        opacity: 0.9;
+        transform: scale(1.5) translate(90% , -10%) rotate(10deg)
+    }
+}
 
