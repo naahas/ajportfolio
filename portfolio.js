@@ -250,7 +250,7 @@ function showPreview(stat) {
         if(stat == 2) {
             pre1.src = "img/beyond2.png";
             pre2.src = "img/beyond1.png";
-            pre3.src = "img/beyond3.png";
+            pre3.src = "img/beyond4.png";
         }
 
 
