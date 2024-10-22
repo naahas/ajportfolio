@@ -38,6 +38,7 @@ var app = new Vue({
            if(stat == 1) window.open("https://guesswhoanime-fd0ebc6338b0.herokuapp.com/");
            else if(stat == 2) window.open("https://otakutest-86023a11b318.herokuapp.com/");
                 else if(stat == 3) window.open("https://beyond-101a9836fbfb.herokuapp.com/");
+                     else if(stat == 4) window.open("https://github.com/naahas/neoshell");
         },
 
 
@@ -239,11 +240,15 @@ pre3.classList.add('previewclass3');
 pre3.classList.add('previewclass');
 
 function showPreview(stat) {
+    var prosection = document.getElementById('projectsection');
+
     if(isTouchDevice() != true) {
         if(stat == 1) {
             pre1.src = "img/bombanime2.png";
             pre2.src = "img/bombanime1.png";
             pre3.src = "img/bombanime3.png";
+
+            prosection.append(pre1 , pre2 , pre3);
         }
         
 
@@ -251,6 +256,8 @@ function showPreview(stat) {
             pre1.src = "img/beyond2.png";
             pre2.src = "img/beyond1.png";
             pre3.src = "img/beyond4.png";
+
+            prosection.append(pre1 , pre2 , pre3);
         }
 
 
@@ -258,12 +265,23 @@ function showPreview(stat) {
             pre1.src = "img/otaku1.png";
             pre2.src = "img/otaku2.png";
             pre3.src = "img/otaku3.png";
+
+            prosection.append(pre1 , pre2 , pre3);
+        }
+
+
+        if(stat == 4) {
+            pre2.src = "img/neoshell1.png";
+
+            pre1.remove();
+            pre3.remove();
+            prosection.append(pre2);
         }
 
 
 
-        var prosection = document.getElementById('projectsection');
-        prosection.append(pre1 , pre2 , pre3);
+       
+     
 
         $('.previewclass').show();
 
