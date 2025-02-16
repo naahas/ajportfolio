@@ -33,6 +33,7 @@ var app = new Vue({
         },
 
 
+
         
         goProject: function(stat) {
            if(stat == 1) window.open("https://bombanime-2074829ae372.herokuapp.com/");
@@ -48,7 +49,7 @@ var app = new Vue({
     },
 
     created:  function() {
-        
+        console.log("Welcome to my portfolio !")
 
     },
 
