@@ -35,9 +35,9 @@ var app = new Vue({
 
         
         goProject: function(stat) {
-           if(stat == 1) window.open("https://guesswhoanime-fd0ebc6338b0.herokuapp.com/");
-           else if(stat == 2) window.open("https://otakutest-86023a11b318.herokuapp.com/");
-                else if(stat == 3) window.open("https://beyond-101a9836fbfb.herokuapp.com/");
+           if(stat == 1) window.open("https://bombanime-2074829ae372.herokuapp.com/");
+           else if(stat == 2) window.open("http://www.shonenpath.com");
+                else if(stat == 3) window.open("https://gobeyond-d9514ea14e46.herokuapp.com/");
                      else if(stat == 4) window.open("https://github.com/naahas/neoshell");
         },
 
@@ -262,9 +262,9 @@ function showPreview(stat) {
 
 
         if(stat == 3) {
-            pre1.src = "img/otaku1.png";
-            pre2.src = "img/otaku2.png";
-            pre3.src = "img/otaku3.png";
+            pre1.src = "img/sho2.png";
+            pre2.src = "img/sho1.png";
+            pre3.src = "img/sho3.png";
 
             prosection.append(pre1 , pre2 , pre3);
         }
