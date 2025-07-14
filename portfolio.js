@@ -38,7 +38,7 @@ var app = new Vue({
         goProject: function(stat) {
            if(stat == 1) window.open("https://bombanime-cd58f0c75e77.herokuapp.com/");
            else if(stat == 2) window.open("http://www.shonenpath.com");
-                else if(stat == 3) window.open("https://gobeyond-d9514ea14e46.herokuapp.com/");
+                else if(stat == 3) window.open("https://gobeyond-bc70c471f3a6.herokuapp.com/");
                      else if(stat == 4) window.open("https://github.com/naahas/neoshell");
         },
 
