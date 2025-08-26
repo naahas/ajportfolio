@@ -3,323 +3,468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Jami - Développeur Full Stack</title>
     
-    <title>Portfolio - Jami Adam</title>
-    <link rel="stylesheet" type="text/css" href="portfolio.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
-    
-    <div id = "app">
-    
-        <div id="maindiv">
-            <!-- <img class="backpic" src="img/back2.jpg" alt="PORTBACK"> -->
-            <div class="mainbackmain"></div>
-
-            <div id="hamburger-btn" onclick="displayMenu()">&#9776;</div>
-
-            <div class="tmpmenu"> 
-                    <ul>
-                        <li><a href="#top"> Home</a></li>
-                        <li><a href="#aboutsection">About</a></li>
-                        <li><a href="#skillsection"> Skills</a></li>
-                        <li><a href="#projectsection"> Projects</a></li>
-                        <li><a href="#contactsection"> Contact</a></li>
-                    </ul>
-            </div>
-
-            <nav id="main-nav">
-
-                <ul>
-                    <li><a href="#top"> <i class="fa-solid fa-house"></i> &nbsp; Home</a></li>
-                    <li><a href="#aboutsection"><i class="fa-solid fa-user" ></i> &nbsp; About</a></li>
-                    <li><a href="#skillsection"> <i class="fa fa-code" aria-hidden="true"></i> &nbsp; Skills</a></li>
-                    <li><a href="#projectsection"> <i class="fa fa-code-fork" aria-hidden="true"></i> &nbsp; Projects</a></li>
-                    <li><a href="#contactsection"><i class="fa-solid fa-comments"></i> &nbsp; Contact</a></li>
-                </ul>
-            </nav>
-
-
-            <div id = "profildata">
-                <p id="nametxt">ADAM JAMI</p>              
-            </div>
-
-            <div id="subnametxt"></div>
-    
-
-
-
-            <!-- <span id="copytxt"> Nahass © 2024</span> -->
-
-
-            <div id="socialarea">
-                <a href="https://github.com/naahas" target="_blank" style="--i:1"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/adam-jami-403a5a297" target="_blank" style="--i:1"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/naahas__" target="_blank" style="--i:1"><i class="bx bxl-instagram-alt"></i></a>
-                <!-- <a href="https://discord.gg/mUdawSEM5c" target="_blank" style="--i:1"><i class="bx bxl-discord-alt"></i></a> -->
-            </div>
-
+<div id="app">
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
         </div>
-
-
-             
-
-        <section id="aboutsection">
-            <!-- <img class="backpic" src="img/back4.jpg" alt="PORTBACK"> -->
-            <div class="aboutback"></div>
-
-            <img class="profilpic" src="img/adam2.png" alt="ADAM">
-            
-            <p class="profiltxt"> 
-                Hey , moi c'est Adam , freelancer dans les domaines de developpement web et logiciel depuis 4 ans. J'effectue également beaucoup de petits projets personnels
-                orientés dans la conception de jeux de plateaux multijoueur. J'essaie toujours de proposer une expérience innovante pour les utilisateurs en étant créatif.
-                N'hésitez pas à jeter un oeil à mes projets ou à me contacter si vous voulez en savoir plus.
-            </p>
-        </section>
-
-
-
-        <section id="skillsection">
-            <!-- <img class="backpic" src="img/back7.jpg" alt="PORTBACK"> -->
-            <div class="backpicskill"></div>
-
-            <div id="skillarea">
-
-                <div class="skillsub" id="htmlarea">
-                    <img id="skill1" class="mainskillpic mainskillpic1" src="img/html.png">
-                    <p> HTML </p>
-                    <div class="skillstardiv">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                    </div>
-                  
-                </div>
-
-                <div class="skillsub" id="jsarea">
-                    <img  id="skill2" class="mainskillpic mainskillpic2" src="img/js2.png">
-                    <img class="pluspic" id="jspluspic" src="img/plus.png" width="30" alt="PLUS">
-                    <p> JAVASCRIPT </p>
-                    <div class="skillstardiv">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                    </div>
-                </div>
-
-                <div class="skillsub" id="cssarea">
-                    <img  id="skill3" class="mainskillpic mainskillpic3" src="img/css.png">
-                    <p> CSS </p>
-                    <div class="skillstardiv">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                    </div>
-                </div>
-
-                <div class="skillsub" id="javaarea">
-                    <img  id="skill4"  class="mainskillpic mainskillpic4" src="img/java.png">
-                    <img class="pluspic" id="javapluspic" src="img/plus.png" width="30" alt="PLUS">
-                    <p> JAVA </p>
-                    <div class="skillstardiv">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                    </div>
-                </div>
-
-                <div class="skillsub" id="pythonarea">
-                    <img  id="skill5"  class="mainskillpic mainskillpic5" src="img/python.png">
-                    <p> Python </p>
-                    <div class="skillstardiv">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                    </div>
-                </div>
-
-                <div class="skillsub" id="cccarea">
-                    <img  id="skill6"  class="mainskillpic mainskillpic6" src="img/ccc.png">
-                    <p> C </p>
-                    <div class="skillstardiv">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                    </div>
-                </div>
-
-
-                <div class="skillsub" id="sqlarea">
-                    <img  id="skill7"  class="mainskillpic mainskillpic7" src="img/sql3.png">
-                    <p> SQL </p>
-                    <div class="skillstardiv">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                        <img src="img/star.png">
-                    </div>
-                </div>
-             
-             
-            </div>
-
-
-            <div id="frameworkarea">
-                <div class="farea" id="fjsarea">
-                    <img src="img/nodejs.png">
-                    <img src="img/vuejs.png">
-                    <img src="img/react.png">
-                    <img src="img/jquery.png">
-                    <img src="img/socketio.png">
-                </div>
-
-                <div class="farea" id="fjavarea">
-                    <img src="img/spring.png">
-                </div>
-
-            </div>
-      
-        </section>
-
-
-        <section id="projectsection">
-            <!-- <img class="backpic" src="img/neoback.jpg"  alt="PORTBACK"> -->
-            <div class="projectback"></div>
-
-            <div class="projectarea">
-
-                <div @click="goProject(1)" class="projectcell">
-                    <span> Bombanime &nbsp; <hr> 
-                        <i class="fab fa-node"></i> &nbsp;
-                        <i class="fa-brands fa-vuejs"></i> &nbsp; 
-                        <img src="img/socketio.png" width="18" height="18">
-                    </span>
-                    <img onmouseover = "showPreview(1)" onmouseleave="disablePreview()" class="backprojectpic" src="img/projectback.jpg">
-                </div>
-
-
-                <div @click="goProject(3)" class="projectcell">
-                    <span> Beyond &nbsp; <hr> 
-                        <i class="fab fa-node"></i> &nbsp;
-                        <i class="fa-brands fa-vuejs"></i> &nbsp;
-                        <img src="img/react.png" width="21" height="21"> &nbsp;
-                        <img src="img/typescript.png" width="18" height="18">
-                    </span>
-                    <img onmouseover = "showPreview(2)" onmouseleave="disablePreview()" class="backprojectpic" src="img/projectback.jpg">
-                </div>
-
-
-                <div @click="goProject(2)" class="projectcell">
-                    <span> ShonenPath &nbsp; <hr> 
-                        <i class="fab fa-node"></i> &nbsp;
-                        <i class="fa-brands fa-vuejs"></i> &nbsp; 
-                        <img src="img/socketio.png" width="18" height="18">
-                    </span>
-                    <img onmouseover = "showPreview(3)" onmouseleave="disablePreview()" class="backprojectpic" src="img/projectback.jpg">
-                </div>
-
-
-                <div @click="goProject(4)" class="projectcell">
-                    <span> Neoshell &nbsp; <hr> 
-                        <img src="img/ccc.png" width="18" height="18">
-                        <img src="img/make.png" width="18" height="18">
-                    </span>
-                    <img onmouseover = "showPreview(4)" onmouseleave="disablePreview()" class="backprojectpic" src="img/projectback.jpg">
-                </div>
-
-            </div>
-
-
-        </section>
-
-
-        <section id="contactsection">
-            <!-- <img class="backpic" src="img/back10.jpg" alt="PORTBACK"> -->
-            <div class="backpiccontact"></div>
-
-            <div class="firstcontacdiv">
-                <p class="headcc"> CONTACTEZ MOI </p>
-                <hr>
-                <p onclick="copyCode(1)" class="copyinfocontact"> 
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ademjami75@gmail.com&su=Sujet%20du%20mail&body=Contenu%20du%20mail" target="_blank">
-                         <i class="fa fa-envelope" aria-hidden="true"></i> &nbsp; ademjami75@gmail.com
-                     </a>
-                
-                </p>
-                <p onclick="copyCode(2)" class="copyinfocontact"> <a href="sms:+33767606735">
-                    <i class="fa fa-phone" aria-hidden="true"></i> &nbsp; +33 7 67 60 67 35
-                </a></p>
-
-            </div>
-
-
-            <div class="secondcontactdiv">
-                <p class="sendtxt">ENVOYEZ MOI UN MESSAGE</p>
-                <hr>
-                <!-- <form action="other_page.php" method="POST/GET"> -->
-                <form id="contactForm">
-                  <div>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Ton nom...">
-                  </div>
-    
-                  <div>
-    
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Ton mail...">
-          
-                  </div>
-    
-                  <div>
-                    <textarea name="message" id="contacttextareaid" class="form-control" placeholder="Ton message..."></textarea>
-                  
-                  </div>
-    
-                  <button type="submit">Envoyer <i class="fa-solid fa-paper-plane"></i></button>
-    
-                </form>
-              </div>
-
-
-
-              <p class="donemsg"> Ton message a bien été transmis  <i class="fa fa-check" aria-hidden="true"></i> </p>
-
-        </section>
-
-
-
-
     </div>
 
+    <!-- Cursor Trail Canvas -->
+    <canvas id="particle-canvas"></canvas>
 
+    <!-- Navigation -->
+    <nav id="navbar" :class="{ 'scrolled': isScrolled }">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">AJ</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a @click="scrollToSection('home')" class="nav-link" :class="{ 'active': activeSection === 'home' }">{{ t.nav.home }}</a></li>
+                <!-- <li><a @click="scrollToSection('about')" class="nav-link" :class="{ 'active': activeSection === 'about' }">{{ t.nav.about }}</a></li> -->
+                <!-- <li><a @click="scrollToSection('skills')" class="nav-link" :class="{ 'active': activeSection === 'skills' }">{{ t.nav.skills }}</a></li> -->
+                <li><a @click="scrollToSection('projects')" class="nav-link" :class="{ 'active': activeSection === 'projects' }">{{ t.nav.projects }}</a></li>
+                <li><a @click="scrollToSection('contact')" class="nav-link" :class="{ 'active': activeSection === 'contact' }">{{ t.nav.contact }}</a></li>
+            </ul>
 
+            <div class="nav-extras">
+                <button class="theme-toggle" @click="toggleTheme">
+                    <i class="fas" :class="theme === 'dark' ? 'fa-sun' : 'fa-moon'"></i>
+                </button>
+                <button class="lang-toggle" @click="toggleLanguage">
+                    <span>{{ currentLang }}</span>
+                </button>
+            </div>
 
+            <div class="hamburger" id="hamburger" @click="toggleMobileMenu" :class="{ 'active': isMobileMenuOpen }">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        
 
+        <div class="hero-background">
+            <div class="geometric-bg"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="hero-subtitle" data-aos="fade-up">{{ t.hero.subtitle }}</h2>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    Adam Jami
+                </h1>
+                <div class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                    <span class="typing-text">{{ currentTypingText }}</span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-tagline" data-aos="fade-up" data-aos-delay="300">
+                    {{ t.hero.tagline }}
+                </p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                    <a @click="scrollToSection('projects')" class="btn btn-primary">
+                        <span>{{ t.hero.viewProjects }}</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a @click="scrollToSection('contact')" class="btn btn-secondary">
+                        <span>{{ t.hero.contactMe }}</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="500">
+                <div class="floating-cards">
+                    <div class="card-tech card-1"><i class="fab fa-node-js"></i></div>
+                    <div class="card-tech card-2"><i class="fab fa-vuejs"></i></div>
+                    <div class="card-tech card-3"><i class="fab fa-react"></i></div>
+                    <div class="card-tech card-4 terminal-trigger" @click="openTerminal">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                </div>
+            </div>
 
+            <transition name="terminal-expand">
+                <div class="terminal-container" v-if="isTerminalOpen" @click.self="closeTerminal">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="terminal-btn close" @click="closeTerminal"></span>
+                                <span class="terminal-btn minimize"></span>
+                                <span class="terminal-btn maximize"></span>
+                            </div>
+                            <span class="terminal-title">adam@portfolio:~</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-output" ref="terminalOutput">
+                                <div class="terminal-line">Adam Terminal v1.3</div>
+                                <div class="terminal-line">Tapez 'help' ou cliquez sur une commande:</div>
+                                <div class="terminal-commands">
+                                    <span class="terminal-cmd" @click="executeCommand('projects')">projects</span>
+                                    <span class="terminal-cmd" @click="executeCommand('about')">about</span>
+                                    <span class="terminal-cmd" @click="executeCommand('skills')">skills</span>
+                                    <span class="terminal-cmd" @click="executeCommand('contact')">contact</span>
+                                    <span class="terminal-cmd" @click="executeCommand('clear')">clear</span>
+                                </div>
+                                <div v-for="line in terminalHistory" :key="line.id" class="terminal-line" v-html="line.text"></div>
+                            </div>
+                            <div class="terminal-input-line">
+                                <span class="terminal-prompt">$</span>
+                                <input 
+                                    v-model="terminalInput" 
+                                    @keyup.enter="handleTerminalCommand"
+                                    class="terminal-input" 
+                                    ref="terminalInputField"
+                                    placeholder="Tape une commande..."
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </transition>
 
+            
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll</span>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">{{ t.about.title }}</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+                    <p class="about-intro">
+                        {{ t.about.intro }}
+                    </p>
+                    
+                    <div class="about-values">
+                        <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>{{ t.about.creative }}</h3>
+                            <p>{{ t.about.creativeDesc }}</p>
+                        </div>
+                        
+                        <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="value-icon">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <h3>{{ t.about.conscientious }}</h3>
+                            <p>{{ t.about.conscientiousDesc }}</p>
+                        </div>
+                        
+                        <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="value-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>{{ t.about.curious }}</h3>
+                            <p>{{ t.about.curiousDesc }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-stats" data-aos="fade-up" data-aos-delay="500">
+                        <div class="stat">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">{{ t.about.statsProjects }}</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">{{ t.about.statsYears }}</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">{{ t.about.statsTechs }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">{{ t.skills.title }}</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Frontend -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-vuejs"></i>
+                            <span>Vue.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="category-title">Backend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>Express</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Spring Boot</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Autres -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="category-title">Autres</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-plug"></i>
+                            <span>Socket.io</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>C</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Heroku</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">{{ t.projects.title }}</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="projects-filter" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn" :class="{ 'active': activeFilter === 'all' }" @click="setFilter('all')">{{ t.projects.all }}</button>
+                <button class="filter-btn" :class="{ 'active': activeFilter === 'web' }" @click="setFilter('web')">{{ t.projects.webApps }}</button>
+                <button class="filter-btn" :class="{ 'active': activeFilter === 'game' }" @click="setFilter('game')">{{ t.projects.games }}</button>
+                <button class="filter-btn" :class="{ 'active': activeFilter === 'tool' }" @click="setFilter('tool')">{{ t.projects.tools }}</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div v-for="project in filteredProjects" :key="project.id" class="project-card-3d" :data-category="project.category" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cube-container">
+                        <div class="cube auto-rotate" @click="openProject(project)">
+                            <!-- Face 1 - Titre + Info -->
+                            <div class="cube-face cube-front">
+                                <div class="face-content">
+                                    <h2 class="project-main-title">{{ project.name }}</h2>
+                                    <div class="project-meta">
+                                        <span class="meta-category">
+                                            <i class="fas fa-folder"></i>
+                                            {{ project.category === 'web' ? 'Application Web' : project.category === 'tool' ? 'Outil' : 'Jeu' }}
+                                        </span>
+                                        <span class="meta-date">
+                                            <i class="fas fa-calendar"></i>
+                                            2025
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="face-scroll-hint">
+                                    <i class="fas fa-arrows-alt-v"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Face 2 - Image/GIF -->
+                            <div class="cube-face cube-right">
+                                <img :src="project.image" :alt="project.name">
+                                <div class="face-scroll-hint">
+                                    <i class="fas fa-arrows-alt-v"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Face 3 - Description -->
+                            <div class="cube-face cube-back">
+                                <div class="face-content">
+                                    <p class="project-description">{{ project.description }}</p>
+                                </div>
+                                <div class="face-scroll-hint">
+                                    <i class="fas fa-arrows-alt-v"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Face 4 - Technologies -->
+                            <div class="cube-face cube-left">
+                                <div class="face-content">
+                                    <h3>Stack Technique</h3>
+                                    <div class="tech-stack">
+                                        <span v-for="tech in project.techs" :key="tech" class="tech-badge">
+                                            {{ tech }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="face-scroll-hint">
+                                    <i class="fas fa-arrows-alt-v"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Faces top et bottom -->
+                            <div class="cube-face cube-top"></div>
+                            <div class="cube-face cube-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">{{ t.contact.title }}</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+                    <h3>{{ t.contact.workTogether }}</h3>
+                    <p>{{ t.contact.text }}</p>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:ademjami75@gmail.com">ademjami75@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+33767606735">+33 7 67 60 67 35</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/naahas" target="_blank">github.com/naahas</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/adam-jami" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" @submit.prevent="submitContactForm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="form-group">
+                        <input type="text" v-model="contactForm.name" :placeholder="t.contact.namePlaceholder" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" v-model="contactForm.email" :placeholder="t.contact.emailPlaceholder" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" v-model="contactForm.subject" :placeholder="t.contact.subjectPlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <textarea v-model="contactForm.message" rows="5" :placeholder="t.contact.messagePlaceholder" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
+                        <span>{{ isSubmitting ? t.contact.sending : t.contact.send }}</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <div v-if="formSuccess" class="form-message success">
+                        {{ t.contact.success }}
+                    </div>
+                    <div v-if="formError" class="form-message error">
+                        {{ t.contact.error }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Adam Jami</p>
+        </div>
+    </footer>
+</div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="portfolio.js"></script>
-    
 </body>
 </html>
