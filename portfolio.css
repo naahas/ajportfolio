@@ -1450,3 +1450,81 @@ section {
 [data-theme="dark"] .cube-right .face-scroll-hint {
     background: rgba(26, 26, 26, 0.9);
 }
+
+
+/* Responsive - Cartes horizontales sur mobile */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    
+    /* Cache le cube 3D sur mobile */
+    .project-card-3d {
+        width: 100%;
+        height: auto;
+        perspective: none;
+        margin: 15px 0;
+    }
+    
+    .cube-container {
+        transform-style: flat;
+        height: auto;
+    }
+    
+    .cube {
+        transform: none !important;
+        animation: none !important;
+        display: block;
+        height: auto;
+    }
+    
+    /* Affiche seulement la face frontale comme une carte */
+    .cube-face {
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        border-radius: 15px;
+        padding: 20px;
+        display: none;
+    }
+    
+    /* Affiche uniquement la face avant */
+    .cube-front {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 120px;
+        background: var(--bg-primary);
+        box-shadow: var(--shadow-md);
+    }
+    
+    .cube-front .face-content {
+        flex: 1;
+        padding: 15px;
+        text-align: left;
+    }
+    
+    .cube-front .project-main-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .cube-front .project-meta {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    /* Cache l'icône de scroll */
+    .face-scroll-hint {
+        display: none;
+    }
+    
+    /* Affiche les infos au tap/click */
+    .cube-front:active {
+        transform: scale(0.98);
+        box-shadow: var(--shadow-sm);
+    }
+}
