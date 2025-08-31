@@ -71,18 +71,18 @@ var app = new Vue({
                     github: null,
                     techs: ['Node.js', 'Vue.js', 'jQuery']
                 },
-                // {
-                //     id: 5,
-                //     name: 'ShonenPath',
-                //     description: 'Quiz interactif basé sur l\'univers anime/manga avec système de scores et classements',
-                //     category: 'game',
-                //     image: 'img/shonenpath.jpg',
-                //     link: 'https://shonenpath-59h326eydd7a.herokuapp.com',
-                //     github: 'https://github.com/naahas/shonenpath',
-                //     techs: ['Node.js', 'Socket.io', 'Vue.js']
-                // },
                 {
                     id: 4,
+                    name: 'Life Coach',
+                    description: 'Plateforme de coaching sportif avec système de réservation multi-étapes',
+                    category: 'web',
+                    image: 'img/lifecoach.png',
+                    link: 'https://lifeprocoach-2dc2cd042f66.herokuapp.com/',
+                    github: null,
+                    techs: ['Node.js', 'Socket.io', 'Vue.js']
+                },
+                {
+                    id: 5,
                     name: 'NeoShell',
                     description: 'Mini shell interactif avec commandes personnalisées développé en C',
                     category: 'tool',
