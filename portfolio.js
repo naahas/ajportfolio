@@ -66,7 +66,7 @@ var app = new Vue({
                     name: 'Go Beyond',
                     description: 'Site vitrine premium pour service de coaching gaming avec interface interactive',
                     category: 'web',
-                    image: 'img/beyond1.png',
+                    image: 'img/beyond2.png',
                     link: 'https://beyond-5e66ea01eb9a.herokuapp.com/',
                     github: null,
                     techs: ['Node.js', 'Vue.js', 'jQuery']
