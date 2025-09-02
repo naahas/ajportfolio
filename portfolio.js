@@ -83,6 +83,15 @@ var app = new Vue({
                 },
                 {
                     id: 5,
+                    name: '2Coupe en coupe',
+                    description: 'Site de réservation pour barbier à domicile avec calcul automatique des frais de déplacement par zone',                    category: 'web',
+                    image: 'img/procut.png',
+                    link: 'https://procut-97a57a95ffab.herokuapp.com/',
+                    github: null,
+                    techs: ['Node.js', 'Socket.io', 'Vue.js']
+                },
+                {
+                    id: 6,
                     name: 'NeoShell',
                     description: 'Mini shell interactif avec commandes personnalisées développé en C',
                     category: 'tool',
