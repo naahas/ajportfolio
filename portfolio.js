@@ -41,25 +41,15 @@ var app = new Vue({
                     github: null,
                     techs: ['Node.js', 'Vue.js', 'Socket.io']
                 },
-                // {
-                //     id: 2,
-                //     name: 'Bombanime',
-                //     description: 'Plateforme de mini-jeux multijoueurs sur l\'univers anime avec système de rooms en temps réel',
-                //     category: 'game',
-                //     image: 'img/bombanime.jpg',
-                //     link: 'https://bombanime-59b3534b52dd7a.herokuapp.com',
-                //     github: 'https://github.com/naahas/bombanime',
-                //     techs: ['Node.js', 'Socket.io', 'Vue.js']
-                // },
                 {
                     id: 2,
-                    name: 'LV9Dreams',
-                    description: 'Site e-commerce moderne pour la vente de shilajit avec système de paiement intégré',
+                    name: 'Nectar Secret',
+                    description: 'Site de restauration moderne avec système de réservation par personnes',
                     category: 'web',
-                    image: 'img/lv9PIC.png',
-                    link: 'https://www.lv9dreams.com',
+                    image: 'img/nectar.png',
+                    link: 'https://nectarsecret-d4f92ab2a3ff.herokuapp.com/',
                     github: null,
-                    techs: ['Node.js', 'Vue.js', 'Socket.io']
+                    techs: ['Node.js', 'Socket.io', 'Vue.js']
                 },
                 {
                     id: 3,
@@ -92,6 +82,16 @@ var app = new Vue({
                 },
                 {
                     id: 6,
+                    name: 'LV9Dreams',
+                    description: 'Site e-commerce moderne pour la vente de shilajit avec système de paiement intégré',
+                    category: 'web',
+                    image: 'img/lv9PIC.png',
+                    link: 'https://www.lv9dreams.com',
+                    github: null,
+                    techs: ['Node.js', 'Vue.js', 'Socket.io']
+                },
+                {
+                    id: 7,
                     name: 'NeoShell',
                     description: 'Mini shell interactif avec commandes personnalisées développé en C',
                     category: 'tool',
