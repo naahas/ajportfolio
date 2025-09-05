@@ -1,22 +1,16 @@
-// ========================================
-// Vue.js Application
-// ========================================
 var app = new Vue({
     el: '#app',
     
     data: function() {
         return {
-            // État de l'application
             isLoading: true,
             theme: 'light',
             currentLang: 'FR',
             
-            // Navigation
             isScrolled: false,
             isMobileMenuOpen: false,
             activeSection: 'home',
             
-            // Typing effect
             typingTexts: [
                 'Développeur Full Stack',
                 'Créateur d\'expériences web',
@@ -28,7 +22,6 @@ var app = new Vue({
             typingCharIndex: 0,
             isDeleting: false,
             
-            // Projects
             activeFilter: 'all',
             projects: [
                 {
@@ -74,7 +67,8 @@ var app = new Vue({
                 {
                     id: 5,
                     name: '2Coupe en coupe',
-                    description: 'Site de réservation pour barbier à domicile avec calcul automatique des frais de déplacement par zone',                    category: 'web',
+                    description: 'Site de réservation pour barbier à domicile avec calcul automatique des frais de déplacement par zone',
+                    category: 'web',
                     image: 'img/procut.png',
                     link: 'https://procut-97a57a95ffab.herokuapp.com/',
                     github: null,
@@ -102,7 +96,6 @@ var app = new Vue({
                 }
             ],
             
-            // Contact form
             contactForm: {
                 name: '',
                 email: '',
@@ -113,11 +106,9 @@ var app = new Vue({
             formSuccess: false,
             formError: false,
             
-            // Particles
             particles: [],
             mousePosition: { x: null, y: null },
             
-            // Translations
             translations: {
                 FR: {
                     nav: {
@@ -242,20 +233,14 @@ var app = new Vue({
                 github: () => { window.open('https://github.com/naahas', '_blank'); return 'Opening GitHub...'; },
                 linkedin: () => { window.open('https://www.linkedin.com/in/adam-jami', '_blank'); return 'Opening LinkedIn...'; },
             }
-
-            
         }
-
-
     },
     
     computed: {
-        // Traductions actuelles
         t() {
             return this.translations[this.currentLang];
         },
         
-        // Projets filtrés
         filteredProjects() {
             if (this.activeFilter === 'all') {
                 return this.projects;
@@ -265,7 +250,6 @@ var app = new Vue({
     },
     
     methods: {
-
         openTerminal() {
             this.isTerminalOpen = true;
             this.$nextTick(() => {
@@ -287,13 +271,11 @@ var app = new Vue({
                 return;
             }
             
-            // Ajoute la commande tapée
             this.terminalHistory.push({
                 id: Date.now(),
                 text: `<span style="color: #4CAF50">$</span> ${command}`
             });
             
-            // Execute et affiche le résultat
             if (this.terminalCommands[command]) {
                 const output = this.terminalCommands[command]();
                 if (output !== 'CLEAR') {
@@ -309,7 +291,6 @@ var app = new Vue({
                 });
             }
             
-            // Scroll to bottom
             this.$nextTick(() => {
                 const output = this.$refs.terminalOutput;
                 if (output) output.scrollTop = output.scrollHeight;
@@ -322,25 +303,21 @@ var app = new Vue({
                 this.terminalInput = '';
             }
         },
-        // Initialisation
+
         initApp() {
-            // Charger le thème sauvegardé
             const savedTheme = localStorage.getItem('theme') || 'light';
             this.theme = savedTheme;
             document.documentElement.setAttribute('data-theme', savedTheme);
             
-            // Charger la langue sauvegardée
             const savedLang = localStorage.getItem('lang') || 'FR';
             this.currentLang = savedLang;
             
-            // Initialiser AOS
             AOS.init({
                 duration: 1000,
                 once: true,
                 offset: 100
             });
             
-            // Masquer le loader après 1.5s
             setTimeout(() => {
                 this.isLoading = false;
                 const loader = document.getElementById('loader');
@@ -352,15 +329,11 @@ var app = new Vue({
                 }
             }, 1500);
             
-            // Démarrer l'effet de typing
             this.startTypingEffect();
-            
-            // Initialiser les événements
             this.initScrollEvents();
             this.initParticleTrail();
         },
         
-        // Navigation
         toggleMobileMenu() {
             this.isMobileMenuOpen = !this.isMobileMenuOpen;
             const navMenu = document.querySelector('.nav-menu');
@@ -383,10 +356,8 @@ var app = new Vue({
             hamburger.classList.remove('active');
         },
         
-        // Scroll events
         initScrollEvents() {
             window.addEventListener('scroll', () => {
-                // Navbar scroll effect
                 this.isScrolled = window.scrollY > 50;
                 const navbar = document.getElementById('navbar');
                 if (navbar) {
@@ -397,7 +368,6 @@ var app = new Vue({
                     }
                 }
                 
-                // Active section detection
                 const sections = document.querySelectorAll('section');
                 let current = '';
                 
@@ -413,7 +383,6 @@ var app = new Vue({
             });
         },
         
-        // Smooth scroll
         scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -422,20 +391,17 @@ var app = new Vue({
             }
         },
         
-        // Theme toggle
         toggleTheme() {
             this.theme = this.theme === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', this.theme);
             localStorage.setItem('theme', this.theme);
         },
         
-        // Language toggle
         toggleLanguage() {
             this.currentLang = this.currentLang === 'FR' ? 'EN' : 'FR';
             localStorage.setItem('lang', this.currentLang);
         },
         
-        // Typing effect
         startTypingEffect() {
             this.typeText();
         },
@@ -454,12 +420,12 @@ var app = new Vue({
             let typeSpeed = this.isDeleting ? 50 : 100;
             
             if (!this.isDeleting && this.typingCharIndex === currentText.length) {
-                typeSpeed = 2000; // Pause at end
+                typeSpeed = 2000;
                 this.isDeleting = true;
             } else if (this.isDeleting && this.typingCharIndex === 0) {
                 this.isDeleting = false;
                 this.typingTextIndex = (this.typingTextIndex + 1) % this.typingTexts.length;
-                typeSpeed = 500; // Pause before new text
+                typeSpeed = 500;
             }
             
             setTimeout(() => {
@@ -467,92 +433,82 @@ var app = new Vue({
             }, typeSpeed);
         },
         
-        // Particle trail
-        // Particle trail
-initParticleTrail() {
-    const canvas = document.getElementById('particle-canvas');
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    // Particle class
-    class Particle {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            this.size = Math.random() * 3 + 1;
-            this.speedX = Math.random() * 3 - 1.5;
-            this.speedY = Math.random() * 3 - 1.5;
-            this.life = 100;
-        }
-        
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            this.life -= 2;
-            if (this.size > 0.2) this.size -= 0.1;
-        }
-        
-        draw() {
-            // Détecte le thème actuel
-            const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+        initParticleTrail() {
+            const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;
             
-            // Change la couleur selon le thème
-            if (isDarkMode) {
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.life / 100 * 0.3})`;
-            } else {
-                ctx.fillStyle = `rgba(26, 26, 26, ${this.life / 100 * 0.3})`;
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            class Particle {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 3 - 1.5;
+                    this.speedY = Math.random() * 3 - 1.5;
+                    this.life = 100;
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    this.life -= 2;
+                    if (this.size > 0.2) this.size -= 0.1;
+                }
+                
+                draw() {
+                    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+                    
+                    if (isDarkMode) {
+                        ctx.fillStyle = `rgba(255, 255, 255, ${this.life / 100 * 0.3})`;
+                    } else {
+                        ctx.fillStyle = `rgba(26, 26, 26, ${this.life / 100 * 0.3})`;
+                    }
+                    
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
             }
             
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-    
-    // Mouse move event
-    window.addEventListener('mousemove', (e) => {
-        this.mousePosition.x = e.x;
-        this.mousePosition.y = e.y;
+            window.addEventListener('mousemove', (e) => {
+                this.mousePosition.x = e.x;
+                this.mousePosition.y = e.y;
+                
+                for (let i = 0; i < 3; i++) {
+                    this.particles.push(new Particle(e.x, e.y));
+                }
+            });
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+            
+            const animate = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                this.particles = this.particles.filter((particle) => {
+                    if (particle.life <= 0) {
+                        return false;
+                    }
+                    particle.update();
+                    particle.draw();
+                    return true;
+                });
+                
+                requestAnimationFrame(animate);
+            };
+            
+            animate();
+        },
         
-        for (let i = 0; i < 3; i++) {
-            this.particles.push(new Particle(e.x, e.y));
-        }
-    });
-    
-    // Resize event
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-    
-    // Animation loop
-    const animate = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        this.particles = this.particles.filter((particle) => {
-            if (particle.life <= 0) {
-                return false;
-            }
-            particle.update();
-            particle.draw();
-            return true;
-        });
-        
-        requestAnimationFrame(animate);
-    };
-    
-    animate();
-},
-        
-        // Project filter
         setFilter(filter) {
             this.activeFilter = filter;
         },
         
-        // Open project
         openProject(project) {
             if (project.link) {
                 window.open(project.link, '_blank');
@@ -561,7 +517,6 @@ initParticleTrail() {
             }
         },
         
-        // Contact form
         async submitContactForm(e) {
             e.preventDefault();
             
@@ -572,7 +527,6 @@ initParticleTrail() {
             this.formError = false;
             
             try {
-                // Envoyer le formulaire au serveur
                 const response = await fetch('/api/contact', {
                     method: 'POST',
                     headers: {
@@ -583,7 +537,6 @@ initParticleTrail() {
                 
                 if (response.ok) {
                     this.formSuccess = true;
-                    // Réinitialiser le formulaire
                     this.contactForm = {
                         name: '',
                         email: '',
@@ -591,7 +544,6 @@ initParticleTrail() {
                         message: ''
                     };
                     
-                    // Masquer le message de succès après 5 secondes
                     setTimeout(() => {
                         this.formSuccess = false;
                     }, 5000);
@@ -602,7 +554,6 @@ initParticleTrail() {
                 console.error('Erreur:', error);
                 this.formError = true;
                 
-                // Masquer le message d'erreur après 5 secondes
                 setTimeout(() => {
                     this.formError = false;
                 }, 5000);
@@ -622,7 +573,6 @@ initParticleTrail() {
                 let rotationCount = 0;
                 let isRotating = false;
                 
-                // Rotation au hover
                 cube.addEventListener('mouseenter', function() {
                     if (isRotating) return;
                     isRotating = true;
@@ -630,13 +580,11 @@ initParticleTrail() {
                     rotationCount++;
                     this.style.transform = `translateZ(-150px) rotateY(${-10 - (90 * rotationCount)}deg)`;
                     
-                    // Empêche les rotations multiples
                     setTimeout(() => {
                         isRotating = false;
                     }, 600);
                 });
                 
-                // Rotation au scroll
                 cube.addEventListener('wheel', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
@@ -652,7 +600,6 @@ initParticleTrail() {
                     
                     this.style.transform = `translateZ(-150px) rotateY(${-10 - (90 * rotationCount)}deg)`;
                     
-                    // Empêche les rotations multiples
                     setTimeout(() => {
                         isRotating = false;
                     }, 600);
@@ -662,23 +609,16 @@ initParticleTrail() {
     },
     
     mounted: function() {
-        // Initialiser l'application
         this.initApp();
         this.initCubeScroll();
-
-        
-        
-       
     }
 });
-
 
 window.addEventListener('scroll', () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
         const rect = projectsSection.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
-            // Active rotation sur le premier projet visible
             const firstCube = document.querySelector('.cube');
             if (firstCube && !firstCube.classList.contains('auto-rotate')) {
                 setTimeout(() => {

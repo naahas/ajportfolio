@@ -5,36 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adam Jami - Développeur Full Stack</title>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
     
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
 <div id="app">
-    <!-- Loader -->
     <div id="loader">
         <div class="loader-content">
             <div class="loader-spinner"></div>
         </div>
     </div>
 
-    <!-- Cursor Trail Canvas -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Navigation -->
     <nav id="navbar" :class="{ 'scrolled': isScrolled }">
         <div class="nav-container">
             <div class="nav-logo">
@@ -43,8 +35,6 @@
             
             <ul class="nav-menu">
                 <li><a @click="scrollToSection('home')" class="nav-link" :class="{ 'active': activeSection === 'home' }">{{ t.nav.home }}</a></li>
-                <!-- <li><a @click="scrollToSection('about')" class="nav-link" :class="{ 'active': activeSection === 'about' }">{{ t.nav.about }}</a></li> -->
-                <!-- <li><a @click="scrollToSection('skills')" class="nav-link" :class="{ 'active': activeSection === 'skills' }">{{ t.nav.skills }}</a></li> -->
                 <li><a @click="scrollToSection('projects')" class="nav-link" :class="{ 'active': activeSection === 'projects' }">{{ t.nav.projects }}</a></li>
                 <li><a @click="scrollToSection('contact')" class="nav-link" :class="{ 'active': activeSection === 'contact' }">{{ t.nav.contact }}</a></li>
             </ul>
@@ -66,7 +56,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         
 
@@ -159,7 +148,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -218,7 +206,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -227,7 +214,6 @@
             </div>
             
             <div class="skills-grid">
-                <!-- Frontend -->
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="category-title">Frontend</h3>
                     <div class="skill-items">
@@ -254,7 +240,6 @@
                     </div>
                 </div>
                 
-                <!-- Backend -->
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="category-title">Backend</h3>
                     <div class="skill-items">
@@ -281,7 +266,6 @@
                     </div>
                 </div>
                 
-                <!-- Autres -->
                 <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="category-title">Autres</h3>
                     <div class="skill-items">
@@ -311,7 +295,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -330,7 +313,6 @@
                 <div v-for="project in filteredProjects" :key="project.id" class="project-card-3d" :data-category="project.category" data-aos="fade-up" data-aos-delay="100">
                     <div class="cube-container">
                         <div class="cube auto-rotate" @click="openProject(project)">
-                            <!-- Face 1 - Titre + Info -->
                             <div class="cube-face cube-front">
                                 <div class="face-content">
                                     <h2 class="project-main-title">{{ project.name }}</h2>
@@ -350,7 +332,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Face 2 - Image/GIF -->
                             <div class="cube-face cube-right">
                                 <img :src="project.image" :alt="project.name">
                                 <div class="face-scroll-hint">
@@ -358,7 +339,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Face 3 - Description -->
                             <div class="cube-face cube-back">
                                 <div class="face-content">
                                     <p class="project-description">{{ project.description }}</p>
@@ -368,7 +348,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Face 4 - Technologies -->
                             <div class="cube-face cube-left">
                                 <div class="face-content">
                                     <h3>Stack Technique</h3>
@@ -383,7 +362,6 @@
                                 </div>
                             </div>
                             
-                            <!-- Faces top et bottom -->
                             <div class="cube-face cube-top"></div>
                             <div class="cube-face cube-bottom"></div>
                         </div>
@@ -393,7 +371,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -419,10 +396,6 @@
                             <i class="fab fa-github"></i>
                             <a href="https://github.com/naahas" target="_blank">github.com/naahas</a>
                         </div>
-                        <!-- <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <a href="https://www.linkedin.com/in/adam-jami" target="_blank">LinkedIn</a>
-                        </div> -->
                     </div>
                 </div>
                 
@@ -455,7 +428,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Adam Jami</p>
@@ -463,7 +435,6 @@
     </footer>
 </div>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="portfolio.js"></script>
 </body>
