@@ -93,6 +93,16 @@ var app = new Vue({
                     link: null,
                     github: 'https://github.com/naahas/neoshell',
                     techs: ['C', 'Unix', 'Shell']
+                },
+                {
+                    id: 8,
+                    name: 'Tiktok Monitor',
+                    description: 'Application de monitoring de Live Tiktok en temps réel avec suivi de commentaires et d"utilisateur',
+                    category: 'tool',
+                    image: 'img/tikmoni.png',
+                    link: null,
+                    github: 'https://github.com/naahas/tiktokmonitor',
+                    techs: ['Node.js', 'Socket.io', 'Express']
                 }
             ],
             
