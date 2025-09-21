@@ -96,11 +96,21 @@ var app = new Vue({
                 },
                 {
                     id: 8,
+                    name: 'Reqwest',
+                    description: 'Client desktop de test d\'APIs REST, alternative légère à Postman avec support des collections et historique',
+                    category: 'tool',
+                    image: 'img/reqwest.png',
+                    link: null,
+                    github: 'https://github.com/naahas/reqwest',
+                    techs: ['Electron', 'Vue.js', 'Node.js']
+                },
+                {
+                    id: 9,
                     name: 'Tiktok Monitor',
                     description: 'Application de monitoring de Live Tiktok en temps réel avec suivi de commentaires et d"utilisateur',
                     category: 'tool',
                     image: 'img/tikmoni.png',
-                    link: null,
+                    link: "https://tiktokmonitor-2e34dd231e21.herokuapp.com/",
                     github: 'https://github.com/naahas/tiktokmonitor',
                     techs: ['Node.js', 'Socket.io', 'Express']
                 }
@@ -235,9 +245,7 @@ var app = new Vue({
             terminalHistory: [],
             terminalCommands: {
                 help: () => 'Available commands: projects, about, skills, contact, clear, github, linkedin',
-                projects: () => 'My projects:\n• GS Location - Vehicle rental application\n• LV9Dreams - E-commerce platform\n• Go Beyond - Gaming coaching service\n• NeoShell - Custom shell in C\n\nType "open <project>" to visit',
-                about: () => 'Adam Jami - Full Stack Developer\n4+ years of experience\nPassionate about creating innovative web experiences\nDouble degree in Mathematics & Computer Science',
-                skills: () => 'Frontend: HTML5, CSS3, JavaScript, Vue.js, React\nBackend: Node.js, Express, Java, Spring Boot, Python\nDatabase: SQL, MongoDB\nTools: Git, Socket.io, Heroku',
+                projects: () => 'My projects:\n• GS Location - Vehicle rental application\n• LV9Dreams - E-commerce platform\n• Go Beyond - Gaming coaching service\n• NeoShell - Custom shell in C\n• Tiktok Monitor - Live TikTok monitoring\n• Reqwest - API Testing Client\n\nType "open <project>" to visit',                skills: () => 'Frontend: HTML5, CSS3, JavaScript, Vue.js, React\nBackend: Node.js, Express, Java, Spring Boot, Python\nDatabase: SQL, MongoDB\nTools: Git, Socket.io, Heroku',
                 contact: () => 'Email: ademjami75@gmail.com\nPhone: +33 7 67 60 67 35\nGitHub: github.com/naahas\nLinkedIn: linkedin.com/in/adam-jami',
                 clear: () => 'CLEAR',
                 github: () => { window.open('https://github.com/naahas', '_blank'); return 'Opening GitHub...'; },
