@@ -30,7 +30,7 @@ var app = new Vue({
                     description: 'Application complète d\'agence de location de véhicules avec système de réservation et vente de formations',
                     category: 'web',
                     image: 'img/gsPIC.png   ',
-                    link: 'https://gslocation-59b35b52dd7a.herokuapp.com',
+                    link: 'https://gslocation-5cf284bc00f8.herokuapp.com/',
                     github: null,
                     techs: ['Node.js', 'Vue.js', 'Socket.io']
                 },
@@ -40,7 +40,7 @@ var app = new Vue({
                     description: 'Site de restauration moderne avec système de réservation par personnes',
                     category: 'web',
                     image: 'img/nectar.png',
-                    link: 'https://nectarsecret-d4f92ab2a3ff.herokuapp.com/',
+                    link: 'https://nectarsecret-74dde5a99b16.herokuapp.com/',
                     github: null,
                     techs: ['Node.js', 'Socket.io', 'Vue.js']
                 },
@@ -50,7 +50,7 @@ var app = new Vue({
                     description: 'Site vitrine premium pour service de coaching gaming avec interface interactive',
                     category: 'web',
                     image: 'img/beyond2.png',
-                    link: 'https://beyond-5e66ea01eb9a.herokuapp.com/',
+                    link: 'https://beyond-1d74e60dd949.herokuapp.com/',
                     github: null,
                     techs: ['Node.js', 'Vue.js', 'jQuery']
                 },
@@ -60,7 +60,7 @@ var app = new Vue({
                     description: 'Plateforme de coaching sportif avec système de réservation multi-étapes',
                     category: 'web',
                     image: 'img/lifecoach.png',
-                    link: 'https://lifeprocoach-2dc2cd042f66.herokuapp.com/',
+                    link: 'https://lifecoach2-ce6f03c2d96e.herokuapp.com/',
                     github: null,
                     techs: ['Node.js', 'Socket.io', 'Vue.js']
                 },
@@ -70,7 +70,7 @@ var app = new Vue({
                     description: 'Site de réservation pour barbier à domicile avec calcul automatique des frais de déplacement par zone',
                     category: 'web',
                     image: 'img/procut.png',
-                    link: 'https://procut-97a57a95ffab.herokuapp.com/',
+                    link: 'https://procut-6c5120a0b753.herokuapp.com/',
                     github: null,
                     techs: ['Node.js', 'Socket.io', 'Vue.js']
                 },
@@ -80,7 +80,7 @@ var app = new Vue({
                     description: 'Site e-commerce moderne pour la vente de shilajit avec système de paiement intégré',
                     category: 'web',
                     image: 'img/lv9PIC.png',
-                    link: 'https://www.lv9dreams.com',
+                    link: 'https://lv9dreams-a83af8a8f214.herokuapp.com/',
                     github: null,
                     techs: ['Node.js', 'Vue.js', 'Socket.io']
                 },
