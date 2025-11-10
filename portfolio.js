@@ -29,10 +29,12 @@ var app = new Vue({
                     name: 'GS Location',
                     description: 'Application complète d\'agence de location de véhicules avec système de réservation et vente de formations',
                     category: 'web',
-                    image: 'img/gsPIC.png   ',
-                    link: 'https://gslocation-5cf284bc00f8.herokuapp.com/',
+                    image: 'img/gsPIC.png',
+                    link: 'https://gslocation.com',
                     github: null,
-                    techs: ['Node.js', 'Vue.js', 'Socket.io']
+                    techs: ['Node.js', 'Vue.js', 'Socket.io'],
+                    featured: true,
+                    size: 'large'
                 },
                 {
                     id: 2,
@@ -42,7 +44,8 @@ var app = new Vue({
                     image: 'img/nectar.png',
                     link: 'https://nectarsecret-74dde5a99b16.herokuapp.com/',
                     github: null,
-                    techs: ['Node.js', 'Socket.io', 'Vue.js']
+                    techs: ['Node.js', 'Socket.io', 'Vue.js'],
+                    size: 'medium'
                 },
                 {
                     id: 3,
@@ -52,7 +55,20 @@ var app = new Vue({
                     image: 'img/beyond2.png',
                     link: 'https://beyond-1d74e60dd949.herokuapp.com/',
                     github: null,
-                    techs: ['Node.js', 'Vue.js', 'jQuery']
+                    techs: ['Node.js', 'Vue.js', 'jQuery'],
+                    size: 'medium'
+                },
+                {
+                    id: 10,
+                    name: 'ShonenMaster',
+                    description: 'Quiz multiplayer anime/manga en temps réel pour streaming Twitch avec système d\'élimination et panel admin',
+                    category: 'game',
+                    image: 'img/shonen.png',
+                    link: 'https://shonenmaster.com',
+                    github: null,
+                    techs: ['Node.js', 'Vue.js', 'Socket.io'],
+                    featured: true,
+                    size: 'large'
                 },
                 {
                     id: 4,
@@ -62,7 +78,8 @@ var app = new Vue({
                     image: 'img/lifecoach.png',
                     link: 'https://lifecoach2-ce6f03c2d96e.herokuapp.com/',
                     github: null,
-                    techs: ['Node.js', 'Socket.io', 'Vue.js']
+                    techs: ['Node.js', 'Socket.io', 'Vue.js'],
+                    size: 'medium'
                 },
                 {
                     id: 5,
@@ -72,18 +89,20 @@ var app = new Vue({
                     image: 'img/procut.png',
                     link: 'https://procut-6c5120a0b753.herokuapp.com/',
                     github: null,
-                    techs: ['Node.js', 'Socket.io', 'Vue.js']
+                    techs: ['Node.js', 'Socket.io', 'Vue.js'],
+                    size: 'small'
                 },
-                {
-                    id: 6,
-                    name: 'LV9Dreams',
-                    description: 'Site e-commerce moderne pour la vente de shilajit avec système de paiement intégré',
-                    category: 'web',
-                    image: 'img/lv9PIC.png',
-                    link: 'https://lv9dreams-a83af8a8f214.herokuapp.com/',
-                    github: null,
-                    techs: ['Node.js', 'Vue.js', 'Socket.io']
-                },
+                // {
+                //     id: 6,
+                //     name: 'LV9Dreams',
+                //     description: 'Site e-commerce moderne pour la vente de shilajit avec système de paiement intégré',
+                //     category: 'web',
+                //     image: 'img/lv9PIC.png',
+                //     link: 'https://lv9dreams-a83af8a8f214.herokuapp.com/',
+                //     github: null,
+                //     techs: ['Node.js', 'Vue.js', 'Socket.io'],
+                //     size: 'medium'
+                // },
                 {
                     id: 7,
                     name: 'NeoShell',
@@ -92,7 +111,8 @@ var app = new Vue({
                     image: 'img/neoshell1.png',
                     link: null,
                     github: 'https://github.com/naahas/neoshell',
-                    techs: ['C', 'Unix', 'Shell']
+                    techs: ['C', 'Unix', 'Shell'],
+                    size: 'small'
                 },
                 {
                     id: 8,
@@ -102,7 +122,8 @@ var app = new Vue({
                     image: 'img/reqwest.png',
                     link: null,
                     github: 'https://github.com/naahas/reqwest',
-                    techs: ['Electron', 'Vue.js', 'Node.js']
+                    techs: ['Electron', 'Vue.js', 'Node.js'],
+                    size: 'medium'
                 },
                 {
                     id: 9,
@@ -112,7 +133,8 @@ var app = new Vue({
                     image: 'img/tikmoni.png',
                     link: "https://tiktokmonitor-2e34dd231e21.herokuapp.com/",
                     github: 'https://github.com/naahas/tiktokmonitor',
-                    techs: ['Node.js', 'Socket.io', 'Express']
+                    techs: ['Node.js', 'Socket.io', 'Express'],
+                    size: 'small'
                 }
             ],
             
@@ -245,7 +267,8 @@ var app = new Vue({
             terminalHistory: [],
             terminalCommands: {
                 help: () => 'Available commands: projects, about, skills, contact, clear, github, linkedin',
-                projects: () => 'My projects:\n• GS Location - Vehicle rental application\n• LV9Dreams - E-commerce platform\n• Go Beyond - Gaming coaching service\n• NeoShell - Custom shell in C\n• Tiktok Monitor - Live TikTok monitoring\n• Reqwest - API Testing Client\n\nType "open <project>" to visit',                skills: () => 'Frontend: HTML5, CSS3, JavaScript, Vue.js, React\nBackend: Node.js, Express, Java, Spring Boot, Python\nDatabase: SQL, MongoDB\nTools: Git, Socket.io, Heroku',
+                projects: () => 'My projects:\n• GS Location - Vehicle rental application\n• LV9Dreams - E-commerce platform\n• Go Beyond - Gaming coaching service\n• NeoShell - Custom shell in C\n• Tiktok Monitor - Live TikTok monitoring\n• Reqwest - API Testing Client\n\nType "open <project>" to visit',
+                skills: () => 'Frontend: HTML5, CSS3, JavaScript, Vue.js, React\nBackend: Node.js, Express, Java, Spring Boot, Python\nDatabase: SQL, MongoDB\nTools: Git, Socket.io, Heroku',
                 contact: () => 'Email: ademjami75@gmail.com\nPhone: +33 7 67 60 67 35\nGitHub: github.com/naahas\nLinkedIn: linkedin.com/in/adam-jami',
                 clear: () => 'CLEAR',
                 github: () => { window.open('https://github.com/naahas', '_blank'); return 'Opening GitHub...'; },
@@ -582,67 +605,10 @@ var app = new Vue({
 
         openLatestProject() {
             window.open('https://gslocation-59b35b52dd7a.herokuapp.com', '_blank');
-        },
-
-        initCubeScroll() {
-            const cubes = document.querySelectorAll('.cube');
-            
-            cubes.forEach(cube => {
-                let rotationCount = 0;
-                let isRotating = false;
-                
-                cube.addEventListener('mouseenter', function() {
-                    if (isRotating) return;
-                    isRotating = true;
-                    
-                    rotationCount++;
-                    this.style.transform = `translateZ(-150px) rotateY(${-10 - (90 * rotationCount)}deg)`;
-                    
-                    setTimeout(() => {
-                        isRotating = false;
-                    }, 600);
-                });
-                
-                cube.addEventListener('wheel', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    if (isRotating) return;
-                    isRotating = true;
-                    
-                    if (e.deltaY > 0) {
-                        rotationCount++;
-                    } else {
-                        rotationCount--;
-                    }
-                    
-                    this.style.transform = `translateZ(-150px) rotateY(${-10 - (90 * rotationCount)}deg)`;
-                    
-                    setTimeout(() => {
-                        isRotating = false;
-                    }, 600);
-                });
-            });
         }
     },
     
     mounted: function() {
         this.initApp();
-        this.initCubeScroll();
-    }
-});
-
-window.addEventListener('scroll', () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-        const rect = projectsSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            const firstCube = document.querySelector('.cube');
-            if (firstCube && !firstCube.classList.contains('auto-rotate')) {
-                setTimeout(() => {
-                    firstCube.classList.add('auto-rotate');
-                }, 500);
-            }
-        }
     }
 });

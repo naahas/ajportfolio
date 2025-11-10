@@ -1,441 +1,442 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adam Jami - Développeur Full Stack</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
-    
+
     <link rel="stylesheet" href="portfolio.css">
 </head>
+
 <body>
-<div id="app">
-    <div id="loader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-        </div>
-    </div>
-
-    <canvas id="particle-canvas"></canvas>
-
-    <nav id="navbar" :class="{ 'scrolled': isScrolled }">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">AJ</span>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a @click="scrollToSection('home')" class="nav-link" :class="{ 'active': activeSection === 'home' }">{{ t.nav.home }}</a></li>
-                <li><a @click="scrollToSection('projects')" class="nav-link" :class="{ 'active': activeSection === 'projects' }">{{ t.nav.projects }}</a></li>
-                <li><a @click="scrollToSection('contact')" class="nav-link" :class="{ 'active': activeSection === 'contact' }">{{ t.nav.contact }}</a></li>
-            </ul>
-
-            <div class="nav-extras">
-                <button class="theme-toggle" @click="toggleTheme">
-                    <i class="fas" :class="theme === 'dark' ? 'fa-sun' : 'fa-moon'"></i>
-                </button>
-                <button class="lang-toggle" @click="toggleLanguage">
-                    <span>{{ currentLang }}</span>
-                </button>
-            </div>
-
-            <div class="hamburger" id="hamburger" @click="toggleMobileMenu" :class="{ 'active': isMobileMenuOpen }">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div id="app">
+        <div id="loader">
+            <div class="loader-content">
+                <div class="loader-spinner"></div>
             </div>
         </div>
-    </nav>
 
-    <section id="home" class="hero">
-        
+        <canvas id="particle-canvas"></canvas>
 
-        <div class="hero-background">
-            <div class="geometric-bg"></div>
-        </div>
-        
-        <div class="hero-content">
-            <div class="hero-text">
-                <h2 class="hero-subtitle" data-aos="fade-up">{{ t.hero.subtitle }}</h2>
-                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                    Adam Jami
-                </h1>
-                <div class="hero-description" data-aos="fade-up" data-aos-delay="200">
-                    <span class="typing-text">{{ currentTypingText }}</span>
-                    <span class="cursor">|</span>
+        <nav id="navbar" :class="{ 'scrolled': isScrolled }">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-text">AJ</span>
                 </div>
-                <p class="hero-tagline" data-aos="fade-up" data-aos-delay="300">
-                    {{ t.hero.tagline }}
-                </p>
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                    <a @click="scrollToSection('projects')" class="btn btn-primary">
-                        <span>{{ t.hero.viewProjects }}</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a @click="scrollToSection('contact')" class="btn btn-secondary">
-                        <span>{{ t.hero.contactMe }}</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="hero-visual" data-aos="fade-left" data-aos-delay="500">
-                <div class="floating-cards">
-                    <div class="card-tech card-1"><i class="fab fa-node-js"></i></div>
-                    <div class="card-tech card-2"><i class="fab fa-vuejs"></i></div>
-                    <div class="card-tech card-3"><i class="fab fa-react"></i></div>
-                    <div class="card-tech card-4 terminal-trigger" @click="openTerminal">
-                        <i class="fas fa-terminal"></i>
-                    </div>
-                </div>
-            </div>
 
-            <transition name="terminal-expand">
-                <div class="terminal-container" v-if="isTerminalOpen" @click.self="closeTerminal">
-                    <div class="terminal-window">
-                        <div class="terminal-header">
-                            <div class="terminal-buttons">
-                                <span class="terminal-btn close" @click="closeTerminal"></span>
-                                <span class="terminal-btn minimize"></span>
-                                <span class="terminal-btn maximize"></span>
-                            </div>
-                            <span class="terminal-title">adam@portfolio:~</span>
-                        </div>
-                        <div class="terminal-body">
-                            <div class="terminal-output" ref="terminalOutput">
-                                <div class="terminal-line">Adam Terminal v1.3</div>
-                                <div class="terminal-line">Tapez 'help' ou cliquez sur une commande:</div>
-                                <div class="terminal-commands">
-                                    <span class="terminal-cmd" @click="executeCommand('projects')">projects</span>
-                                    <span class="terminal-cmd" @click="executeCommand('about')">about</span>
-                                    <span class="terminal-cmd" @click="executeCommand('skills')">skills</span>
-                                    <span class="terminal-cmd" @click="executeCommand('contact')">contact</span>
-                                    <span class="terminal-cmd" @click="executeCommand('clear')">clear</span>
-                                </div>
-                                <div v-for="line in terminalHistory" :key="line.id" class="terminal-line" v-html="line.text"></div>
-                            </div>
-                            <div class="terminal-input-line">
-                                <span class="terminal-prompt">$</span>
-                                <input 
-                                    v-model="terminalInput" 
-                                    @keyup.enter="handleTerminalCommand"
-                                    class="terminal-input" 
-                                    ref="terminalInputField"
-                                    placeholder="Tape une commande..."
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </transition>
+                <ul class="nav-menu">
+                    <li><a @click="scrollToSection('home')" class="nav-link"
+                            :class="{ 'active': activeSection === 'home' }">{{ t.nav.home }}</a></li>
+                    <li><a @click="scrollToSection('projects')" class="nav-link"
+                            :class="{ 'active': activeSection === 'projects' }">{{ t.nav.projects }}</a></li>
+                    <li><a @click="scrollToSection('contact')" class="nav-link"
+                            :class="{ 'active': activeSection === 'contact' }">{{ t.nav.contact }}</a></li>
+                </ul>
 
-            
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <span>Scroll</span>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">{{ t.about.title }}</h2>
-                <div class="title-line"></div>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-up" data-aos-delay="100">
-                    <p class="about-intro">
-                        {{ t.about.intro }}
-                    </p>
-                    
-                    <div class="about-values">
-                        <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="value-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h3>{{ t.about.creative }}</h3>
-                            <p>{{ t.about.creativeDesc }}</p>
-                        </div>
-                        
-                        <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-                            <div class="value-icon">
-                                <i class="fas fa-check-double"></i>
-                            </div>
-                            <h3>{{ t.about.conscientious }}</h3>
-                            <p>{{ t.about.conscientiousDesc }}</p>
-                        </div>
-                        
-                        <div class="value-card" data-aos="fade-up" data-aos-delay="400">
-                            <div class="value-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <h3>{{ t.about.curious }}</h3>
-                            <p>{{ t.about.curiousDesc }}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="about-stats" data-aos="fade-up" data-aos-delay="500">
-                        <div class="stat">
-                            <span class="stat-number">6+</span>
-                            <span class="stat-label">{{ t.about.statsProjects }}</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">4+</span>
-                            <span class="stat-label">{{ t.about.statsYears }}</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">{{ t.about.statsTechs }}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">{{ t.skills.title }}</h2>
-                <div class="title-line"></div>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="category-title">Frontend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-vuejs"></i>
-                            <span>Vue.js</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="category-title">Backend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-server"></i>
-                            <span>Express</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-java"></i>
-                            <span>Java</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-leaf"></i>
-                            <span>Spring Boot</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="category-title">Autres</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <i class="fas fa-database"></i>
-                            <span>SQL</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-plug"></i>
-                            <span>Socket.io</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-code"></i>
-                            <span>C</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class="fas fa-cloud"></i>
-                            <span>Heroku</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">{{ t.projects.title }}</h2>
-                <div class="title-line"></div>
-            </div>
-            
-            <div class="projects-filter" data-aos="fade-up" data-aos-delay="100">
-                <button class="filter-btn" :class="{ 'active': activeFilter === 'all' }" @click="setFilter('all')">{{ t.projects.all }}</button>
-                <button class="filter-btn" :class="{ 'active': activeFilter === 'web' }" @click="setFilter('web')">{{ t.projects.webApps }}</button>
-                <button class="filter-btn" :class="{ 'active': activeFilter === 'game' }" @click="setFilter('game')">{{ t.projects.games }}</button>
-                <button class="filter-btn" :class="{ 'active': activeFilter === 'tool' }" @click="setFilter('tool')">{{ t.projects.tools }}</button>
-            </div>
-            
-            <div class="projects-grid">
-                <div v-for="project in filteredProjects" :key="project.id" class="project-card-3d" :data-category="project.category" data-aos="fade-up" data-aos-delay="100">
-                    <div class="cube-container">
-                        <div class="cube auto-rotate" @click="openProject(project)">
-                            <div class="cube-face cube-front">
-                                <div class="face-content">
-                                    <h2 class="project-main-title">{{ project.name }}</h2>
-                                    <div class="project-meta">
-                                        <span class="meta-category">
-                                            <i class="fas fa-folder"></i>
-                                            {{ project.category === 'web' ? 'Application Web' : project.category === 'tool' ? 'Outil' : 'Jeu' }}
-                                        </span>
-                                        <span class="meta-date">
-                                            <i class="fas fa-calendar"></i>
-                                            2025
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="face-scroll-hint">
-                                    <i class="fas fa-arrows-alt-v"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="cube-face cube-right">
-                                <img :src="project.image" :alt="project.name">
-                                <div class="face-scroll-hint">
-                                    <i class="fas fa-arrows-alt-v"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="cube-face cube-back">
-                                <div class="face-content">
-                                    <p class="project-description">{{ project.description }}</p>
-                                </div>
-                                <div class="face-scroll-hint">
-                                    <i class="fas fa-arrows-alt-v"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="cube-face cube-left">
-                                <div class="face-content">
-                                    <h3>Stack Technique</h3>
-                                    <div class="tech-stack">
-                                        <span v-for="tech in project.techs" :key="tech" class="tech-badge">
-                                            {{ tech }}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="face-scroll-hint">
-                                    <i class="fas fa-arrows-alt-v"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="cube-face cube-top"></div>
-                            <div class="cube-face cube-bottom"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">{{ t.contact.title }}</h2>
-                <div class="title-line"></div>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
-                    <h3>{{ t.contact.workTogether }}</h3>
-                    <p>{{ t.contact.text }}</p>
-                    
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:ademjami75@gmail.com">ademjami75@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:+33767606735">+33 7 67 60 67 35</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <a href="https://github.com/naahas" target="_blank">github.com/naahas</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <form class="contact-form" @submit.prevent="submitContactForm" data-aos="fade-up" data-aos-delay="200">
-                    <div class="form-group">
-                        <input type="text" v-model="contactForm.name" :placeholder="t.contact.namePlaceholder" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" v-model="contactForm.email" :placeholder="t.contact.emailPlaceholder" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" v-model="contactForm.subject" :placeholder="t.contact.subjectPlaceholder">
-                    </div>
-                    <div class="form-group">
-                        <textarea v-model="contactForm.message" rows="5" :placeholder="t.contact.messagePlaceholder" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
-                        <span>{{ isSubmitting ? t.contact.sending : t.contact.send }}</span>
-                        <i class="fas fa-paper-plane"></i>
+                <div class="nav-extras">
+                    <button class="theme-toggle" @click="toggleTheme">
+                        <i class="fas" :class="theme === 'dark' ? 'fa-sun' : 'fa-moon'"></i>
                     </button>
-                    
-                    <div v-if="formSuccess" class="form-message success">
-                        {{ t.contact.success }}
-                    </div>
-                    <div v-if="formError" class="form-message error">
-                        {{ t.contact.error }}
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+                    <button class="lang-toggle" @click="toggleLanguage">
+                        <span>{{ currentLang }}</span>
+                    </button>
+                </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Adam Jami</p>
-        </div>
-    </footer>
-</div>
+                <div class="hamburger" id="hamburger" @click="toggleMobileMenu" :class="{ 'active': isMobileMenuOpen }">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <section id="home" class="hero">
+
+
+            <div class="hero-background">
+                <div class="geometric-bg"></div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-subtitle" data-aos="fade-up">{{ t.hero.subtitle }}</h2>
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                        Adam Jami
+                    </h1>
+                    <div class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                        <span class="typing-text">{{ currentTypingText }}</span>
+                        <span class="cursor">|</span>
+                    </div>
+                    <p class="hero-tagline" data-aos="fade-up" data-aos-delay="300">
+                        {{ t.hero.tagline }}
+                    </p>
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                        <a @click="scrollToSection('projects')" class="btn btn-primary">
+                            <span>{{ t.hero.viewProjects }}</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a @click="scrollToSection('contact')" class="btn btn-secondary">
+                            <span>{{ t.hero.contactMe }}</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual" data-aos="fade-left" data-aos-delay="500">
+                    <div class="floating-cards">
+                        <div class="card-tech card-1"><i class="fab fa-node-js"></i></div>
+                        <div class="card-tech card-2"><i class="fab fa-vuejs"></i></div>
+                        <div class="card-tech card-3"><i class="fab fa-react"></i></div>
+                        <div class="card-tech card-4 terminal-trigger" @click="openTerminal">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <transition name="terminal-expand">
+                    <div class="terminal-container" v-if="isTerminalOpen" @click.self="closeTerminal">
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <div class="terminal-buttons">
+                                    <span class="terminal-btn close" @click="closeTerminal"></span>
+                                    <span class="terminal-btn minimize"></span>
+                                    <span class="terminal-btn maximize"></span>
+                                </div>
+                                <span class="terminal-title">adam@portfolio:~</span>
+                            </div>
+                            <div class="terminal-body">
+                                <div class="terminal-output" ref="terminalOutput">
+                                    <div class="terminal-line">Adam Terminal v1.3</div>
+                                    <div class="terminal-line">Tapez 'help' ou cliquez sur une commande:</div>
+                                    <div class="terminal-commands">
+                                        <span class="terminal-cmd" @click="executeCommand('projects')">projects</span>
+                                        <span class="terminal-cmd" @click="executeCommand('about')">about</span>
+                                        <span class="terminal-cmd" @click="executeCommand('skills')">skills</span>
+                                        <span class="terminal-cmd" @click="executeCommand('contact')">contact</span>
+                                        <span class="terminal-cmd" @click="executeCommand('clear')">clear</span>
+                                    </div>
+                                    <div v-for="line in terminalHistory" :key="line.id" class="terminal-line"
+                                        v-html="line.text"></div>
+                                </div>
+                                <div class="terminal-input-line">
+                                    <span class="terminal-prompt">$</span>
+                                    <input v-model="terminalInput" @keyup.enter="handleTerminalCommand"
+                                        class="terminal-input" ref="terminalInputField"
+                                        placeholder="Tape une commande...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </transition>
+
+
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">{{ t.about.title }}</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+                        <p class="about-intro">
+                            {{ t.about.intro }}
+                        </p>
+
+                        <div class="about-values">
+                            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="value-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3>{{ t.about.creative }}</h3>
+                                <p>{{ t.about.creativeDesc }}</p>
+                            </div>
+
+                            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="value-icon">
+                                    <i class="fas fa-check-double"></i>
+                                </div>
+                                <h3>{{ t.about.conscientious }}</h3>
+                                <p>{{ t.about.conscientiousDesc }}</p>
+                            </div>
+
+                            <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="value-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>{{ t.about.curious }}</h3>
+                                <p>{{ t.about.curiousDesc }}</p>
+                            </div>
+                        </div>
+
+                        <div class="about-stats" data-aos="fade-up" data-aos-delay="500">
+                            <div class="stat">
+                                <span class="stat-number">6+</span>
+                                <span class="stat-label">{{ t.about.statsProjects }}</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">4+</span>
+                                <span class="stat-label">{{ t.about.statsYears }}</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">{{ t.about.statsTechs }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">{{ t.skills.title }}</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="category-title">Frontend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-js"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-vuejs"></i>
+                                <span>Vue.js</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="category-title">Backend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <i class="fab fa-node-js"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-server"></i>
+                                <span>Express</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Spring Boot</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="category-title">Autres</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <i class="fas fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-plug"></i>
+                                <span>Socket.io</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-code"></i>
+                                <span>C</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fab fa-git-alt"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="fas fa-cloud"></i>
+                                <span>Heroku</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">{{ t.projects.title }}</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="projects-filter" data-aos="fade-up" data-aos-delay="100">
+                    <button class="filter-btn" :class="{ 'active': activeFilter === 'all' }"
+                        @click="setFilter('all')">{{ t.projects.all }}</button>
+                    <button class="filter-btn" :class="{ 'active': activeFilter === 'web' }"
+                        @click="setFilter('web')">{{ t.projects.webApps }}</button>
+                    <button class="filter-btn" :class="{ 'active': activeFilter === 'game' }"
+                        @click="setFilter('game')">{{ t.projects.games }}</button>
+                    <button class="filter-btn" :class="{ 'active': activeFilter === 'tool' }"
+                        @click="setFilter('tool')">{{ t.projects.tools }}</button>
+                </div>
+
+                <div class="projects-grid">
+                    <div v-for="project in filteredProjects" :key="project.id" class="bento-card"
+                        :class="'size-' + project.size" @click="openProject(project)">
+                        <!-- Image de fond -->
+                        <img :src="project.image" :alt="project.name" class="bento-image">
+
+                        <!-- Overlay gradient -->
+                        <div class="bento-overlay"></div>
+
+                        <!-- Badge Featured -->
+                        <div v-if="project.featured" class="bento-featured-badge">
+                            <i class="fas fa-star"></i>
+                            Featured
+                        </div>
+
+                        <!-- Contenu -->
+                        <div class="bento-content">
+                            <!-- Badge catégorie -->
+                            <div class="bento-category">
+                                <i class="fas" :class="{
+                            'fa-globe': project.category === 'web',
+                            'fa-gamepad': project.category === 'game',
+                            'fa-tools': project.category === 'tool'
+                        }"></i>
+                                {{ project.category === 'web' ? 'Application Web' :
+                                project.category === 'game' ? 'Jeu' : 'Outil' }}
+                            </div>
+
+                            <!-- Info projet -->
+                            <div class="bento-info">
+                                <h3 class="bento-title">{{ project.name }}</h3>
+                                <p class="bento-description">{{ project.description }}</p>
+                                <div class="bento-techs">
+                                    <span v-for="tech in project.techs" :key="tech" class="bento-tech-tag">
+                                        {{ tech }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action button -->
+                        <div class="bento-action">
+                            <i class="fas" :class="project.link ? 'fa-external-link-alt' : 'fa-code'"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">{{ t.contact.title }}</h2>
+                    <div class="title-line"></div>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+                        <h3>{{ t.contact.workTogether }}</h3>
+                        <p>{{ t.contact.text }}</p>
+
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:ademjami75@gmail.com">ademjami75@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+33767606735">+33 7 67 60 67 35</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/naahas" target="_blank">github.com/naahas</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" @submit.prevent="submitContactForm" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="form-group">
+                            <input type="text" v-model="contactForm.name" :placeholder="t.contact.namePlaceholder"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" v-model="contactForm.email" :placeholder="t.contact.emailPlaceholder"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" v-model="contactForm.subject"
+                                :placeholder="t.contact.subjectPlaceholder">
+                        </div>
+                        <div class="form-group">
+                            <textarea v-model="contactForm.message" rows="5" :placeholder="t.contact.messagePlaceholder"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" :disabled="isSubmitting">
+                            <span>{{ isSubmitting ? t.contact.sending : t.contact.send }}</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                        <div v-if="formSuccess" class="form-message success">
+                            {{ t.contact.success }}
+                        </div>
+                        <div v-if="formError" class="form-message error">
+                            {{ t.contact.error }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Adam Jami</p>
+            </div>
+        </footer>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="portfolio.js"></script>
 </body>
+
 </html>
